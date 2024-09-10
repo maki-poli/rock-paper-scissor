@@ -7,7 +7,16 @@
 </head>
 <body>
     <script>
-        console.log("Hello World")
+        let rock = 1;
+        let paper = 2;
+        let scissor = 3;
+        
+        function computerChoice() { //this function generate a number between 1 to 3 using Math.floor and Math.random
+            let randomInt = Math.floor(Math.random() * 3) + 1; //this have a + 1 because if there is no "+1" then the random numbers would be 0 to 2
+            console.log(randomInt); //prints out the random number
+        }
+
+        computerChoice(); //calls the function
     </script>
 </body>
 </html>
