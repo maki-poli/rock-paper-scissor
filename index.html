@@ -7,16 +7,31 @@
 </head>
 <body>
     <script>
-        let rock = 1;
-        let paper = 2;
-        let scissor = 3;
-        
         function computerChoice() { //this function generate a number between 1 to 3 using Math.floor and Math.random
-            let randomInt = Math.floor(Math.random() * 3) + 1; //this have a + 1 because if there is no "+1" then the random numbers would be 0 to 2
-            console.log(randomInt); //prints out the random number
+            let randomInt = Math.floor(Math.random() * 3); //this have a + 1 because if there is no "+1" then the random numbers would be 0 to 2 (This urocksed to have a + 1 but with arrays we do not need the +1 anymore because when converting integers to strings, the first one in the array is always '0')
+
+            const choice = ['Rock', 'Paper', 'Scissor']; //this is an array for the convertion of integer to string
+            let outcomeChoice = choice[randomInt];//this converts the integers to strings
+
+            console.log(outcomeChoice); //prints out the random string
         }
 
         computerChoice(); //calls the function
+
+        function userChoice() {
+            let userInput = prompt("Input Rock, Paper, or Scissor") //this lets the user have an option to choose if Rock, Paper, or Scissor
+
+            if (userInput === 'Rock' || userInput === 'Paper' || userInput === 'Scissor') { //in this one, the code will only work if the user types the choices the same as it is inside the ''
+                console.log("User Chose: ", userInput); //prints out the choice of the user
+            }
+                else {
+                    console.log("Invalid! Case Sensitive! Enter Rock OR Paper OR Scissor ONLY!!!");//prints out if the user didn't type the choice as accurate
+                }
+        }
+
+        userChoice();
+
+
     </script>
 </body>
 </html>
