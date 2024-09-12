@@ -7,6 +7,9 @@
 </head>
 <body>
     <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        let roundNumber = 1;
 
         function decision(humanChoice, getComputerChoice) {
             const rules = {
@@ -47,7 +50,7 @@
                 }
         }
 
-        function play () {
+        function play() {
             let user = humanChoice(); //calls the function humanChoice as a variable to be used in this function
             if (user === null) return; //stops the program if user input is invalid 
 
@@ -58,7 +61,56 @@
             console.log(decision(user, computer));//prints the outcome of the game
         }
 
-       play();
+        function playRound(playerChoice) {
+            const computerChoice = getComputerChoice();   
+
+
+             if (playerChoice === computerChoice) {
+             return "It's a tie!";
+             } else if (
+            (playerChoice === "ROCK" && computerChoice === "SCISSOR") ||
+            (playerChoice === "PAPER" && computerChoice === "ROCK") ||
+            (playerChoice === "SCISSOR" && computerChoice === "PAPER")) 
+            {
+
+            playerScore++;
+            return `You win! ${playerChoice} beats ${computerChoice}.`;
+            } else {
+            computerScore++;
+            return `You lose! ${computerChoice} beats ${playerChoice}.`;
+            }
+            }
+
+        function playGame() {
+
+            for (let roundNumber = 1; roundNumber <= 5; roundNumber++){
+                console.log(`Round ${roundNumber}`);
+
+                const human = humanChoice();
+                const computer = getComputerChoice();
+                const result = playRound(human, computer);
+                console.log(result);
+                if (result === "User Wins") {
+                    playerScore++;
+                } else if (result === "Computer Wins") {
+                    computerScore++;
+                }
+                console.log(`Player Score: ${playerScore} | Computer Score: ${computerScore}`);
+
+                if (playerScore === 3 || computerScore ===3) {
+                    break;
+                }
+            }
+            if (playerScore > computerScore) {
+                console.log("You win!");
+            } else if (playerScore < computerScore) {
+                console.log("Computer Win!")
+            } else {
+                console.log("It's a tie");
+            }
+        }
+
+        playGame();
 
     </script>
 </body>
