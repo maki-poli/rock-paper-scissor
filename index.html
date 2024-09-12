@@ -35,7 +35,7 @@
 
         computerChoice(); //calls the function
 
-        function userChoice() {
+        function humanChoice() {
             let userInput = prompt("Input Rock, Paper, or Scissor") //this lets the user have an option to choose if Rock, Paper, or Scissor
 
             if (userInput === 'Rock' || userInput === 'Paper' || userInput === 'Scissor') { //in this one, the code will only work if the user types the choices the same as it is inside the ''
@@ -48,7 +48,7 @@
         }
 
         function play () {
-            let user = userChoice(); //calls the function userChoice as a variable to be used in this function
+            let user = humanChoice(); //calls the function userChoice as a variable to be used in this function
             if (user === null) return; //stops the program if user input is invalid 
 
             let computer = computerChoice();//calls the function computerChoice as a variable to be used in this function
