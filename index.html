@@ -8,32 +8,32 @@
 <body>
     <script>
 
-        function decision(userChoice, computerChoice) {
+        function decision(humanChoice, getComputerChoice) {
             const rules = {
                 'Rock' : 'Scissor', //I don't understand this as much but ":" is used to tell the computer that Rock is 'better' or 'beats' the Scissor
                 'Scissor' : 'Paper',
                 'Paper' : 'Rock'
             };
 
-            if (userChoice === computerChoice) {//if the user and computer chose the same answer, then it is a draw
+            if (humanChoice === getComputerChoice) {//if the user and computer chose the same answer, then it is a draw
                 return "Its a draw";
             }
 
-            if (rules[userChoice] === computerChoice) {//this is a bit tricky, but in here if the choice of the user and computer aligns with the rules, it will return as 'true'
+            if (rules[humanChoice] === getComputerChoice) {//this is a bit tricky, but in here if the choice of the user and computer aligns with the rules, it will return as 'true'
                 return "User wins!"
             } else {
                 return "Computer Wins! Better luck next time" //if it don't align then this will run because the choice of the user and computer doesn't align with the rules meaning its 'false'
             }
         }
 
-        function computerChoice() { //this function generate a number between 1 to 3 using Math.floor and Math.random
+        function getComputerChoice() { //this function generate a number between 1 to 3 using Math.floor and Math.random
             let randomInt = Math.floor(Math.random() * 3); //this have a + 1 because if there is no "+1" then the random numbers would be 0 to 2 (This urocksed to have a + 1 but with arrays we do not need the +1 anymore because when converting integers to strings, the first one in the array is always '0')
 
             const choice = ['Rock', 'Paper', 'Scissor']; //this is an array for the convertion of integer to string
             return choice[randomInt];//this converts the integers to strings
         }
 
-        computerChoice(); //calls the function
+        getComputerChoice(); //calls the function
 
         function humanChoice() {
             let userInput = prompt("Input Rock, Paper, or Scissor") //this lets the user have an option to choose if Rock, Paper, or Scissor
@@ -48,10 +48,10 @@
         }
 
         function play () {
-            let user = humanChoice(); //calls the function userChoice as a variable to be used in this function
+            let user = humanChoice(); //calls the function humanChoice as a variable to be used in this function
             if (user === null) return; //stops the program if user input is invalid 
 
-            let computer = computerChoice();//calls the function computerChoice as a variable to be used in this function
+            let computer = getComputerChoice();//calls the function getComputerChoice as a variable to be used in this function
 
             console.log("user chose: ", user);//prints the user choice
             console.log("computer chose: ", computer);//prints the computer choice
