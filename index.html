@@ -10,9 +10,9 @@
 
         function decision(humanChoice, getComputerChoice) {
             const rules = {
-                'Rock' : 'Scissor', //I don't understand this as much but ":" is used to tell the computer that Rock is 'better' or 'beats' the Scissor
-                'Scissor' : 'Paper',
-                'Paper' : 'Rock'
+                'ROCK' : 'SCISSOR', //I don't understand this as much but ":" is used to tell the computer that Rock is 'better' or 'beats' the Scissor
+                'SCISSOR' : 'PAPER',
+                'PAPER' : 'ROCK'
             };
 
             if (humanChoice === getComputerChoice) {//if the user and computer chose the same answer, then it is a draw
@@ -29,20 +29,20 @@
         function getComputerChoice() { //this function generate a number between 1 to 3 using Math.floor and Math.random
             let randomInt = Math.floor(Math.random() * 3); //this have a + 1 because if there is no "+1" then the random numbers would be 0 to 2 (This urocksed to have a + 1 but with arrays we do not need the +1 anymore because when converting integers to strings, the first one in the array is always '0')
 
-            const choice = ['Rock', 'Paper', 'Scissor']; //this is an array for the convertion of integer to string
+            const choice = ['ROCK', 'PAPER', 'SCISSOR']; //this is an array for the convertion of integer to string
             return choice[randomInt];//this converts the integers to strings
         }
 
         getComputerChoice(); //calls the function
 
         function humanChoice() {
-            let userInput = prompt("Input Rock, Paper, or Scissor") //this lets the user have an option to choose if Rock, Paper, or Scissor
+            let userInput = prompt("Input Rock, Paper, or Scissor").toUpperCase() //this lets the user have an option to choose if Rock, Paper, or Scissor
 
-            if (userInput === 'Rock' || userInput === 'Paper' || userInput === 'Scissor') { //in this one, the code will only work if the user types the choices the same as it is inside the ''
+            if (userInput === 'ROCK' || userInput === 'PAPER' || userInput === 'SCISSOR') { //in this one, the code will only work if the user types the choices the same as it is inside the ''
             return userInput;//this will return the input of the user in function play 
         }
                 else {
-                    console.log("Invalid! Case Sensitive! Enter Rock OR Paper OR Scissor ONLY!!!");//prints out if the user didn't type the choice as accurate
+                    console.log("Invalid!");//prints out if the user didn't type the choice as accurate
                 return null; //stops the program if user input is invalid 
                 }
         }
