@@ -18,6 +18,8 @@
                 'PAPER' : 'ROCK'
             };
 
+            
+
             if (humanChoice === getComputerChoice) {//if the user and computer chose the same answer, then it is a draw
                 return "Its a draw";
             }
@@ -61,8 +63,7 @@
             console.log(decision(user, computer));//prints the outcome of the game
         }
 
-        function playRound(playerChoice) {
-            const computerChoice = getComputerChoice();   
+        function playRound(playerChoice, computerChoice) {
 
 
              if (playerChoice === computerChoice) {
@@ -88,6 +89,11 @@
 
                 const human = humanChoice();
                 const computer = getComputerChoice();
+
+                console.log("choices",{
+                    human,
+                    computer
+                })
                 const result = playRound(human, computer);
                 console.log(result);
                 if (result === "User Wins") {
